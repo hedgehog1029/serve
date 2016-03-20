@@ -1,0 +1,29 @@
+{
+  "name": "@hedgehog1029/serve",
+  "version": "1.0.0",
+  "description": "An amazingly simple static HTTP server, designed for file mirrors.",
+  "main": "index.js",
+  "dependencies": {
+    "mime": "^1.3.4",
+    "mu2": "^0.5.20"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hedgehog1029/serve.git"
+  },
+  "keywords": [
+    "http",
+    "server",
+    "static"
+  ],
+  "author": "hedgehog1029 / offbeatwitch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hedgehog1029/serve/issues"
+  },
+  "homepage": "https://github.com/hedgehog1029/serve#readme"
+}
