@@ -38,12 +38,12 @@ function stripTrailingSlash(str) {
 
 server.on("request", function(req, res) {
 	var requested = url.parse(req.url, true);
-	var filepath = FILE_BASE + requested.path;
+	var filepath = FILE_BASE + requested.pathname;
 
-	if (requested.path.startsWith("/template/img/")) {
-		if (fs.existsSync(__dirname + requested.path)) {
+	if (requested.pathname.startsWith("/template/img/")) {
+		if (fs.existsSync(__dirname + requested.pathname)) {
 			res.writeHead(200, {"Content-Type": "image/png"});
-			fs.createReadStream(__dirname + requested.path).pipe(res);
+			fs.createReadStream(__dirname + requested.pathname).pipe(res);
 
 			return;
 		}
@@ -61,7 +61,7 @@ server.on("request", function(req, res) {
 				var fileList = files.map(function(file, i) {
 					return {
 						name: file,
-						href: stripTrailingSlash(requested.path) + "/" + file,
+						href: stripTrailingSlash(requested.pathname) + "/" + file,
 						img: imageLookup(file, fs.statSync(filepath + "/" + file).isDirectory())
 					};
 				});
@@ -73,7 +73,7 @@ server.on("request", function(req, res) {
 
 				if (!config.caching) mu.clearCache();
 				var stream = mu.compileAndRender("index.html", {
-					title: config.title + " | " + requested.path,
+					title: config.title + " | " + requested.pathname,
 					header: config.header,
 					footer: config.footer,
 					files: fileList

@@ -1,6 +1,6 @@
 {
-	"title": "penguin",
-	"header": "penguin - mirror one",
-	"footer": "hosted by <a href=\"http://github.com/hedgehog1029\">@offbeatwitch</a>",
-	"caching": true
+	"title": "serve",
+	"header": "serve",
+	"footer": "hosted by <a href=\"http://github.com/your-name-here\">@your-name-here</a>",
+	"caching": false
 }
