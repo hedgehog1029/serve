@@ -11,7 +11,7 @@ var http = require("http"),
 	mime = require("mime"),
 	url = require("url");
 
-var config = JSON.parse(fs.readFileSync(__dirname + "/config/config.json"));
+var config = JSON.parse(fs.readFileSync(__dirname + "/config/config.json", "utf8"));
 
 var server = http.createServer();
 mu.root = __dirname + "/template";
@@ -82,7 +82,7 @@ server.on("request", function(req, res) {
 				stream.pipe(res);
 			});
 		} else if (stats.isFile()) {
-			res.writeHead(200, {"Content-Type": mime.lookup(filepath)});
+			res.writeHead(200, { "Content-Type": mime.lookup(filepath), "Content-Length": stats.size });
 
 			fs.createReadStream(filepath).pipe(res);
 		}
